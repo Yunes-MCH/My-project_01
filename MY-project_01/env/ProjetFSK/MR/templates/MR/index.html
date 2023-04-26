@@ -1,0 +1,44 @@
+{%extends 'MR/base.html'%}
+{%block titel %}Welcome{%endblock%}
+{%block content %}
+
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl" style="background-color:#1E90FF;">
+        {%for logo in logos%}
+
+    <center>
+        <h1 style="font-size: 35px; color: #fbfbfb;">FSK</h1>
+        <div class="image">
+        <a href="#">
+            
+              <img src="{{logo.image.url}}" style="height: 200px;width: 200px;border-radius:50%;border:2px solid #fbfbfb;">
+           
+        </a>
+        </div></center>
+        
+        
+{%endfor%} <br><br>
+    <div class="grid grid-cols-3 gap-3" >
+         {%for item in items%}
+         <div>
+            <a href="#">
+                <div>
+                    <img src="{{item.image.url}}" class="rounded-t-xl">
+                </div>
+                <div class="p-2 bg-white border-1">
+                    <h2 class="text-2xl text-center">{{item.name}}</h2>
+                    <p class="text-gray-500">{{item.price}}</p>
+                </div>
+                <div class="p-2 bg-white rounded-b-xl text-center">
+                    <div class="space-x-5 space-y-5">
+                        <!--<a href="#" class="text-lg font-semibold hover:text-gray-500"> New item</a>
+                        <a href="#" class="text-lg font-semibold hover:text-gray-500">Browse</a>-->
+                        <a href="{% url 'singup' %}" class="px-5 py-2 text-lg font-semibold bg-blue-500 text-white rounded-xl hover:bg-blue-700">Sing up</a>
+                        <a href="{% url 'singin' %}" class="px-7 py-2 text-lg font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700">Log in</a>
+                    </div>
+                </div>
+            </a>
+         </div>
+         {%endfor%}
+    </div>
+</div>
+{%endblock%}
